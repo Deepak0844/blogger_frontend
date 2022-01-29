@@ -24,21 +24,32 @@ import { useFormik } from "formik";
 import * as yup from "yup";
 import KeyboardArrowUpOutlinedIcon from "@mui/icons-material/KeyboardArrowUpOutlined";
 import { toast } from "react-toastify";
+import Loader from "../Loader/Loader";
 
 function Post() {
   const { id } = useParams();
+  const [isLoad, setIsLoad] = useState(false);
   //get post by id
   const [post, setPost] = useState(null);
   useEffect(() => {
+    setIsLoad(true);
     axios
       .get(`${URL}/post/${id}`)
-      .then((res) => setPost(res.data))
-      .catch((err) => console.log(err));
+      .then((res) => {
+        setPost(res.data);
+        setIsLoad(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        setIsLoad(false);
+      });
   }, [id]);
   return (
     <div>
       {post ? (
         <PostData post={post} setPost={setPost} />
+      ) : isLoad ? (
+        <Loader />
       ) : (
         <p style={{ textAlign: "center", marginTop: "20px " }}>
           Post not available
