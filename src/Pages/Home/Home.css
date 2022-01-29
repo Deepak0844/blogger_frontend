@@ -1,0 +1,47 @@
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.headerImage {
+  width: 100%;
+  height: calc(100vh - 56px);
+  background-size: cover;
+  object-fit: cover;
+}
+.headerTitle {
+  text-align: center;
+  position: absolute;
+  /* top: 100px; */
+  top: 18%;
+}
+.headerTitle h5 {
+  color: white;
+  font-family: "lora";
+  font-weight: 700;
+  font-size: 25px;
+}
+.headerSpan {
+  color: tomato;
+  font-size: 50px;
+  font-weight: 700;
+}
+.headerBtn {
+  padding-top: 5%;
+}
+@media (max-width: 1024px) {
+  .headerTitle h5 {
+    font-size: 30px;
+  }
+  .headerSpan {
+    font-size: 35px;
+  }
+}
+/* @media (min-width: 550px) {
+  .headerTitle h5 {
+    font-size: 20px;
+  }
+  .headerSpan {
+    font-size: 35px;
+  }
+} */
