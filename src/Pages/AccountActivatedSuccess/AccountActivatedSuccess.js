@@ -5,6 +5,7 @@ import { useParams, useHistory } from "react-router-dom";
 import { Button } from "@mui/material";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import WarningAmberIcon from "@mui/icons-material/WarningAmber";
+import { URL } from "../../Components/BaseUrl";
 
 function AccountActivatedSuccess() {
   const history = useHistory();
@@ -13,7 +14,7 @@ function AccountActivatedSuccess() {
   const [error, setError] = useState("");
   useEffect(() => {
     axios
-      .get(`http://localhost:9000/auth/account-verification/${token}`)
+      .get(`${URL}/auth/account-verification/${token}`)
       .then((res) => {
         setSuccess(res.data.message);
       })

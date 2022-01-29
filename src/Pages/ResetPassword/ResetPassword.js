@@ -67,7 +67,7 @@ function ResetPassword() {
 
     console.log(others);
     axios
-      .post(`http://localhost:9000/auth/change-password`, others)
+      .post(`${URL}/auth/change-password`, others)
       .then(() => {
         setLoading(false);
         history.push("/passwordchanged-Successfully");
