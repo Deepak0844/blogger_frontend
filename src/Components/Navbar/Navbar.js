@@ -27,7 +27,6 @@ function NavBar() {
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
   };
-  // bg = "transparent";
   return (
     <Navbar bg="white" sticky="top" expand="md">
       <Container fluid>
