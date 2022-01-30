@@ -3,11 +3,12 @@ import "./Home.css";
 import { useHistory } from "react-router-dom";
 import { useState, useEffect } from "react";
 
+//home page
 function Home() {
   const history = useHistory();
   const [checked, setChecked] = useState(false);
   useEffect(() => {
-    setChecked(true);
+    setChecked(true); //title animation
   }, []);
   return (
     <header className="header">
@@ -20,6 +21,7 @@ function Home() {
       </>
       <br />
       <div className="headerTitle">
+        {/* title animation */}
         <Collapse in={checked} {...(checked ? { timeout: 2000 } : {})}>
           <h5>
             Welcome to... <br />

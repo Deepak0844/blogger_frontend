@@ -26,15 +26,15 @@ import { toast } from "react-toastify";
 function Create() {
   const history = useHistory();
   //file uploader
-  const [progress, setProgress] = useState(0);
-  const [image, setImage] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [progress, setProgress] = useState(0); //progress of uploading
+  const [image, setImage] = useState(""); //file
+  const [loading, setLoading] = useState(false); //loading
 
   const fileUpload = (e) => {
     e.preventDefault();
     if (e.target.files[0]) {
       const file = e.target.files[0];
-      firebaseFileUpload({ file, setProgress, setImage, setLoading });
+      firebaseFileUpload({ file, setProgress, setImage, setLoading }); //files send to firebase file uploader from- fire base/index.js
     }
     return;
   };
@@ -58,12 +58,12 @@ function Create() {
     });
 
   const publish = (post) => {
+    //post will be created with username and user profile picture
     post.userName = user.userName;
     post.userProfilePic = user.profilePic ? user.profilePic : "";
     post.photo = image
       ? image
-      : "https://image.kpopmap.com/2019/05/2.-HD_Mubeat.png";
-    //"https://ouikar.com/pub/media/catalog/product/placeholder/default/image_not_available.png";
+      : "https://image.kpopmap.com/2019/05/2.-HD_Mubeat.png"; //if no image is selected image placeholder(image) will attached
     axios
       .post(`${URL}/post`, post)
       .then(() => {
@@ -86,12 +86,12 @@ function Create() {
           <img
             src={
               image
-                ? image
+                ? image //if no image default image will display
                 : "https://firebasestorage.googleapis.com/v0/b/blog-app-a46d7.appspot.com/o/Background%2F1643475840146.jpeg?alt=media&token=5e607096-c9c0-4953-b584-bc4b6df5d15b"
             }
             alt="uploaded pic"
           ></img>
-          {loading ? (
+          {loading ? ( //loader indicator with progress//file uploader
             <Box sx={{ position: "absolute" }}>
               <CircularProgress
                 variant="determinate"
@@ -179,6 +179,7 @@ function Create() {
   );
 }
 
+// post creating validation schema
 const formValidationSchema = yup.object({
   title: yup
     .string()

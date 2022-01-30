@@ -3,6 +3,8 @@ import RouterProtection from "./RouterProtection";
 
 const Create = React.lazy(() => import("../../Pages/Create/Create"));
 const Profile = React.lazy(() => import("../../Pages/Profile/Profile"));
+
+//these router will protected needs authentication
 const ToProtect = [
   {
     path: "/create",

@@ -1,1 +1,1 @@
-export const URL = "https://bloggerappbackend.herokuapp.com";
+export const URL = "https://bloggerappbackend.herokuapp.com"; //backend url

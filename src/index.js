@@ -7,6 +7,7 @@ import { Provider } from "react-redux";
 
 ReactDOM.render(
   <React.StrictMode>
+    {/* redux store */}
     <Provider store={store}>
       <Router>
         <App />

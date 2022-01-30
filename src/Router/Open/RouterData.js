@@ -19,6 +19,7 @@ const ForgotPassword = lazy(() =>
   import("../../Pages/ForgotPassword/ForgotPassword")
 );
 
+//these router will be access without authentication
 export const openRouter = [
   {
     path: "/blog",

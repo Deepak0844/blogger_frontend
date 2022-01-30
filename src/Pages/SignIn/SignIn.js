@@ -29,6 +29,7 @@ import {
   api_call_failed,
 } from "../../redux/user/userAction";
 
+//sign in
 function SignIn() {
   const dispatch = useDispatch();
   const isLoading = useSelector((state) => state.isLoading);
@@ -64,10 +65,10 @@ function SignIn() {
       .post(`${URL}/auth/signin`, signinUser)
       .then((res) => {
         localStorage.setItem("token", res.data.token);
-        dispatch(api_call_successful(res.data.loginData));
+        dispatch(api_call_successful(res.data.loginData)); // user info will stored in local storage and pass the data to all components via redux
         history.push("/blog");
       })
-      .catch((err) => dispatch(api_call_failed(err.response.data.message)));
+      .catch((err) => dispatch(api_call_failed(err.response.data.message))); //error message
   };
 
   return (
@@ -173,6 +174,7 @@ function SignIn() {
   );
 }
 
+//validation schema
 const formValidationSchema = yup.object({
   email: yup
     .string()

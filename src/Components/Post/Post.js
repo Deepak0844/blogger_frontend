@@ -26,8 +26,9 @@ import KeyboardArrowUpOutlinedIcon from "@mui/icons-material/KeyboardArrowUpOutl
 import { toast } from "react-toastify";
 import Loader from "../Loader/Loader";
 
+//to display a post by id
 function Post() {
-  const { id } = useParams();
+  const { id } = useParams(); //id from url parameter
   const [isLoad, setIsLoad] = useState(false);
   //get post by id
   const [post, setPost] = useState(null);
@@ -46,9 +47,9 @@ function Post() {
   }, [id]);
   return (
     <div>
-      {post ? (
+      {post ? ( //if post is not null post will display
         <PostData post={post} setPost={setPost} />
-      ) : isLoad ? (
+      ) : isLoad ? ( //or spinner and post unavailable message based on condition of loader
         <Loader />
       ) : (
         <p style={{ textAlign: "center", marginTop: "20px " }}>
@@ -74,7 +75,7 @@ function PostData({ post, setPost }) {
   const handleClose = () => {
     setAnchorEl(null);
   };
-  //delete post
+  //delete post by id
   const handleDelete = () => {
     setAnchorEl(null);
     axios
@@ -137,7 +138,7 @@ function PostData({ post, setPost }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      {scroll && (
+      {scroll && ( //if page offset goes greater than 350 scroll up button will display
         <Button color="inherit" onClick={toTop}>
           <span className="scrollTop">
             <KeyboardArrowUpOutlinedIcon fontSize="large" />
@@ -146,7 +147,7 @@ function PostData({ post, setPost }) {
       )}
       <section className="postContainer">
         <img src={post.photo} alt="post"></img>
-        {isUpdate ? (
+        {isUpdate ? ( //when user click edit button text field will display else plain text will display
           <div className="postUpdateInput">
             <TextField
               inputProps={{
@@ -223,7 +224,7 @@ function PostData({ post, setPost }) {
           <span
             className="postAuthor"
             style={{ cursor: "pointer" }}
-            onClick={() => history.push(`/blog?userName=${post.userName}`)}
+            onClick={() => history.push(`/blog?userName=${post.userName}`)} //serach post by user
           >
             <Avatar
               style={{ width: 32, height: 32 }}
@@ -246,7 +247,7 @@ function PostData({ post, setPost }) {
             {new Date(post.createdAt).toDateString()}
           </span>
         </div>
-        {isUpdate ? (
+        {isUpdate ? ( //when user click edit button text field will display else plain text will display
           <div className="updateDescription">
             <TextareaAutosize
               value={values.description}
@@ -268,7 +269,7 @@ function PostData({ post, setPost }) {
         ) : (
           <p className="postDescription">{post.description}</p>
         )}
-        {isUpdate && (
+        {isUpdate && ( //when user click edit button update button will display to update the changes
           <div className="updateBtn">
             <Button variant="contained" color="success" type="submit">
               Update
@@ -282,6 +283,7 @@ function PostData({ post, setPost }) {
             </Button>
           </div>
         )}
+        {/* when user click delete button dialogbox will appear */}
         <DeletePostDialog
           openDialog={openDialog}
           setOpenDialog={setOpenDialog}
@@ -292,7 +294,7 @@ function PostData({ post, setPost }) {
   );
 }
 
-//
+//validation schema
 const formValidationSchema = yup.object({
   title: yup
     .string()
@@ -304,6 +306,7 @@ const formValidationSchema = yup.object({
     .required("please fill the description"),
 });
 
+//delete dialogbox
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });

@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import { Button } from "@mui/material";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 
+//after successfully password changed
 function PasswordChangedSuccess() {
   const history = useHistory();
 

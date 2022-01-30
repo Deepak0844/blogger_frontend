@@ -7,6 +7,7 @@ import ProtectedRouter from "./Protection/ProtectedRouter";
 import { openRouter } from "./Open/RouterData";
 import Loader from "../Components/Loader/Loader";
 
+//routers
 export default function AllPageRouters() {
   return (
     <Router>

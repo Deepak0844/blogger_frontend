@@ -9,6 +9,7 @@ import { URL } from "../../Components/BaseUrl";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import { green } from "@mui/material/colors";
 
+//forgot password page
 function ForgotPassword() {
   const history = useHistory();
   const [error, setError] = useState("");
@@ -107,7 +108,7 @@ function ForgotPassword() {
   );
 }
 
-//validation
+//validation schema for email
 const formValidationSchema = yup.object({
   email: yup
     .string()

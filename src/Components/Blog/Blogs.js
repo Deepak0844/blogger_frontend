@@ -11,8 +11,9 @@ import Loader from "../Loader/Loader";
 function Blogs() {
   const [blog, setBlog] = useState([]);
   const history = useHistory();
-  const { search } = useLocation();
+  const { search } = useLocation(); //use query to fetch post by user
   const [isLoad, setIsLoad] = useState(false);
+
   useEffect(() => {
     setIsLoad(true);
     axios
@@ -28,7 +29,7 @@ function Blogs() {
   }, [search]);
   return (
     <div className="blogContainer">
-      {blog.length > 0 ? (
+      {blog.length > 0 ? ( //length of blog less than 0 it spinner or create yours
         blog.map((post) => <Blog key={post._id} post={post} />)
       ) : isLoad ? (
         <Loader />

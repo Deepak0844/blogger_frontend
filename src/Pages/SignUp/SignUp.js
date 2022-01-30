@@ -27,6 +27,7 @@ import {
 import { green } from "@mui/material/colors";
 import { toast } from "react-toastify";
 
+//sign up
 function SignUp() {
   const error = useSelector((state) => state.error);
   const isLoading = useSelector((state) => state.isLoading);
@@ -206,7 +207,7 @@ function SignUp() {
     </form>
   );
 }
-
+//validation schema
 const formValidationSchema = yup.object({
   userName: yup.string().required("please fill the User Name"),
   email: yup

@@ -1,6 +1,8 @@
 import React from "react";
 import "./Blog.css";
 import { useHistory } from "react-router-dom";
+
+//to list all the blogs
 function Blog({ post }) {
   const history = useHistory();
   return (

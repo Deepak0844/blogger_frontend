@@ -11,6 +11,7 @@ import Loader from "./Components/Loader/Loader";
 function App() {
   return (
     <div className="App">
+      {/* toaster */}
       <ToastContainer
         position="top-center"
         autoClose={4000}
@@ -23,6 +24,7 @@ function App() {
         pauseOnHover
         theme="colored"
       />
+      {/* routes */}
       <Router>
         <Suspense fallback={<Loader />}>
           <Switch>

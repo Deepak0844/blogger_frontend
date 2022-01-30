@@ -20,6 +20,7 @@ import { URL } from "../../Components/BaseUrl";
 //toast
 import { toast } from "react-toastify";
 
+//change password in profile(dialog box)
 export function ChangePassword({ dialogOpen, setDialogOpen }) {
   const user = useSelector((state) => state.data);
   //validation
@@ -154,6 +155,7 @@ export function ChangePassword({ dialogOpen, setDialogOpen }) {
     </section>
   );
 }
+// password validation schema
 const formValidationSchema = yup.object({
   password: yup
     .string()

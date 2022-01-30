@@ -93,6 +93,7 @@ function Profile() {
     if (e.target.files[0]) {
       const file = e.target.files[0];
       firebaseFileUpload({
+        //firebase file uplaoder-firsbase/index.js
         file,
         setProgress,
         setImage,
@@ -188,6 +189,7 @@ function Profile() {
               <Button onClick={handleMenuClick}>
                 <MoreVertIcon />
               </Button>
+              {/* for mobile menu icon will display */}
               <Menu
                 id="fade-menu"
                 MenuListProps={{
@@ -210,6 +212,7 @@ function Profile() {
                 </MenuItem>
               </Menu>
             </div>
+            {/* when user click delete account dialog box will display to confirm */}
             <div className="deleteDialog">
               <DeleteAccDialogBtn
                 open={open}
@@ -240,7 +243,7 @@ function Profile() {
                     <AddIcon color="action" style={{ fontSize: "40px" }} />
                   </Tooltip>
                 </label>
-                {image ? (
+                {image ? ( //after image is clicked remove icon will shown
                   <Button
                     color="error"
                     onClick={() => setImage("")}
@@ -307,7 +310,7 @@ function Profile() {
     </section>
   );
 }
-
+// validation schema
 const formValidationSchema = yup.object({
   userName: yup
     .string()
@@ -315,6 +318,7 @@ const formValidationSchema = yup.object({
     .required("fill user name please"),
 });
 
+//delete dialog box
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });

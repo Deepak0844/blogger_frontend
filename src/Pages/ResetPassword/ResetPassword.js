@@ -21,6 +21,7 @@ import { useEffect, useState } from "react";
 import { URL } from "../../Components/BaseUrl";
 import ErrorOutlineOutlinedIcon from "@mui/icons-material/ErrorOutlineOutlined";
 
+//reset password -when user click a link from mail after forgot password process
 function ResetPassword() {
   const history = useHistory();
   const { token } = useParams();
@@ -82,7 +83,7 @@ function ResetPassword() {
   };
   return (
     <div className="resetPasswordContainer">
-      {response ? (
+      {response ? ( //response ok text fiels will display
         <div className="resetPasswordWraper">
           <form className="resetPasswordInput" onSubmit={handleSubmit}>
             <DialogTitle
@@ -188,6 +189,7 @@ function ResetPassword() {
           </form>
         </div>
       ) : (
+        //else link no longer message will display
         <div className="invalidPage">
           <ErrorOutlineOutlinedIcon
             color="error"
@@ -210,7 +212,7 @@ function ResetPassword() {
     </div>
   );
 }
-
+// password validation schema
 const formValidationSchema = yup.object({
   password: yup
     .string()

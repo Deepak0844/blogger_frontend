@@ -55,7 +55,7 @@ function NavBar() {
               Create
             </Navbar.Brand>
           </Nav>
-          {!user ? (
+          {!user ? ( // if no user login and logout button will display
             <div>
               <Button color="inherit" onClick={() => history.push("/signin")}>
                 <b>Sign In</b>
@@ -65,6 +65,7 @@ function NavBar() {
               </Button>
             </div>
           ) : (
+            //if there is user profile and logout menu will display with there profile picture
             /* Profile icon menu */
             <div>
               <Avatar

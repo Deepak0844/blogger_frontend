@@ -1,6 +1,8 @@
 import { storage } from "./fireBase";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 
+//firebase image uploader
+//it takes the file(images) and returns the file(images) as a url to display images
 const firebaseFileUpload = ({
   file,
   setLoading,
