@@ -34,6 +34,7 @@ function SignIn() {
   const dispatch = useDispatch();
   const isLoading = useSelector((state) => state.isLoading);
   const error = useSelector((state) => state.error);
+  const [isFetching, setIsFetching] = useState(false);
 
   const [showPassword, setShowPassword] = useState(false);
 
@@ -71,6 +72,23 @@ function SignIn() {
       .catch((err) => dispatch(api_call_failed(err.response.data.message))); //error message
   };
 
+  //demo credential
+  const handleSignin = () => {
+    const signinUser = {
+      email: "test@gmail.com",
+      password: "Test@123",
+    };
+    setIsFetching(true);
+    axios
+      .post(`${URL}/auth/signin`, signinUser)
+      .then((res) => {
+        localStorage.setItem("token", res.data.token);
+        dispatch(api_call_successful(res.data.loginData)); // user info will stored in local storage and pass the data to all components via redux
+        setIsFetching(false);
+        history.push("/blog");
+      })
+      .catch(() => setIsFetching(false));
+  };
   return (
     <form className="signInFormContainer" onSubmit={handleSubmit}>
       <div className="signInForm">
@@ -132,6 +150,34 @@ function SignIn() {
           >
             <p className="optionBtn">Sign In</p>
             {isLoading ? (
+              <CircularProgress
+                size={24}
+                sx={{
+                  color: green[500],
+                  position: "absolute",
+                  top: "50%",
+                  left: "50%",
+                  marginTop: "-12px",
+                  marginLeft: "-12px",
+                }}
+              />
+            ) : (
+              ""
+            )}
+          </Button>
+           <Button
+            onClick={handleSignin}
+            sx={{
+              borderRadius: "5px",
+              boxShadow: "none",
+              padding: "5px",
+            }}
+            variant="contained"
+            color="success"
+            disabled={isFetching}
+          >
+            <p className="optionBtn">Sign in with demo credential</p>
+            {isFetching ? (
               <CircularProgress
                 size={24}
                 sx={{
