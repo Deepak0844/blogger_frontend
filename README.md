@@ -1,6 +1,6 @@
-### frontend_deployed_link - https://blog-app-a46d7.web.app/
-### backend_source_code - https://github.com/Deepak0844/Blogger_App_Backend
-### backend_deployed_link - https://bloggerappbackend.herokuapp.com/
+ frontend_deployed_link - https://blog-app-a46d7.web.app/
+ backend_source_code - https://github.com/Deepak0844/Blogger_App_Backend
+ backend_deployed_link - https://bloggerappbackend.herokuapp.com/
 
 
 
