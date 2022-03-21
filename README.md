@@ -1,18 +1,3 @@
- frontend_deployed_link - https://blog-app-a46d7.web.app/ 
- 
- backend_source_code - https://github.com/Deepak0844/Blogger_App_Backend 
- 
- backend_deployed_link - https://bloggerappbackend.herokuapp.com/ 
-
-
-
-
-
-
-
-
-
-
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
